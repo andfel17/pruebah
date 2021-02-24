@@ -45,12 +45,7 @@ class MyDocument extends Document {
                     <NextScript />
                 </body>
                 <footer>
-					<script type="module">
-						import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-
-						const el = document.createElement('pwa-update');
-						document.body.appendChild(el);
-					</script>
+					<script type="module" src="./pwabuilder-sw-register.js"></script>
                 </footer>
             </Html>
         )
