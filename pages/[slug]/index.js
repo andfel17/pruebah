@@ -20,7 +20,7 @@ export default class index extends Component {
     imgOva = () => {
         const { data } = this.props;
         return (
-            <div className={styles.imgOva} style={{ backgroundImage: "url("+`${imgOvaHentai(data?.imgOva)}`+")"}}>
+            <div className={styles.imgOva} style={{ backgroundImage: "url("+`${imgOvaHentai(data?.img_ova)}`+")"}}>
                 <div className={styles.content} >
                     <div className={styles.column}>
                         <h1>{data?.name}</h1>
@@ -50,7 +50,7 @@ export default class index extends Component {
                         width="auto"
                         layout="responsive"
                         loading={"lazy"}
-                        src={imgHentai(data?.poster)}/>
+                        src={imgHentai(data?.img_hentai)}/>
                 </div>
                 <div className={styles.list}>
                     <div className={styles.item}>
