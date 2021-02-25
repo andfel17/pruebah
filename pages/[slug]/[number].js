@@ -6,7 +6,7 @@ import Iframe from 'react-iframe';
 import { api } from '../../lib/api';
 import Layout from '../../components/Layout';
 import Comments from "../../components/Comments";
-import { slugOva, slugHentai, imageHentaiSearch, imageOva } from '../../helpers/Functions';
+import { slugOva, slugHentai, imgHentai, imgOvaHentai } from '../../helpers/Functions';
 import { getUrlVideo } from '../../helpers/Strings';
 
 import styles from '../../styles/Ova.module.css';
@@ -93,7 +93,7 @@ export default class number extends Component {
                                 width="auto"
                                 layout="responsive"
                                 loading={"lazy"}
-                                src={imageHentaiSearch(data?.hentai?.img_hentai) }/>
+                                src={imgHentai(data?.hentai?.img_hentai) }/>
                         </a> 
                         </Link>
                         <div className={styles.details}>
@@ -157,10 +157,10 @@ export default class number extends Component {
                     <meta name="og:url" content={`${process.env.URL}${slugOva(data?.hentai?.slug,data?.number)}`} />
                     <meta name="og:locale" content="es_LA" />
                     <meta name="og:type" content="video.ova" />
-                    <meta name="og:image" content={imageOva(data?.hentai?.banner)} />
+                    <meta name="og:image" content={imgOvaHentai(data?.hentai?.banner)} />
                     <meta property="og:image:width" content="552" />
 			        <meta property="og:image:height" content="310" />
-                    <meta itemProp="image" content={imageOva(data?.hentai?.banner)} />
+                    <meta itemProp="image" content={imgOvaHentai(data?.hentai?.banner)} />
                 </Head>
                 <main className={styles.container}>
                     { this.videoPlayer() }
@@ -180,17 +180,14 @@ export async function getServerSideProps(context) {
             : navigator.userAgent
         ).match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i);
         if(Boolean(isMobileView) === false){
-            Object.values(res.data.players).forEach((element, index) => 
-                res.data.players[index] = element.filter(function(item){
-                    if(item.server.title === 'Archive'){
-                        return false;
-                    }else{
-                        return true;
-                    }
-                })
-            )
+            res.data.players = res.data.players.filter(function(item){
+                if(item.server.title === 'Archive'){
+                    return false;
+                }else{
+                    return true;
+                }
+            })			
         }
-
         return {
             props: { 
                 data: res.data
