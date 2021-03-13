@@ -45,7 +45,6 @@ class MyDocument extends Document {
                     <NextScript />
                 </body>
                 <footer>
-					<script type="module" src="/pwabuilder-sw-register.js"></script>
                 </footer>
             </Html>
         )
