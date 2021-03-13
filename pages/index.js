@@ -29,6 +29,19 @@ export default class index extends Component {
                     <meta property="og:image:width" content="265" />
 			        <meta property="og:image:height" content="265" />
                     <meta itemProp="image" content="https://i.imgur.com/Iof3uSm.jpg" />
+		    <style>
+			@media (max-width:1024px) {
+				#exoNativeWidget3572730.exo-native-widget .exo-native-widget-outer-container .exo-native-widget-item-container {
+					flex-basis:calc(100%/4) !important;
+				}
+			}
+
+			@media (max-width:768px) {
+				#exoNativeWidget3572730.exo-native-widget .exo-native-widget-outer-container .exo-native-widget-item-container {
+					flex-basis:calc(100%/3) !important;
+				}
+			}
+		    </style>
                 </Head>
                 <main className={styles.container}>
 		    <script type="application/javascript" data-idzone="3572730" src="https://a.exdynsrv.com/nativeads-v2.js" ></script>
