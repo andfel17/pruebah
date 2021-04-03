@@ -31,7 +31,7 @@ export default class index extends Component {
                     <meta itemProp="image" content="https://i.imgur.com/Iof3uSm.jpg" />
                 </Head>
                 <main className={styles.container}>
-		    <script type="application/javascript" data-idzone="3572730" src="https://a.exdynsrv.com/nativeads-v2.js" ></script>
+		    <script type="application/javascript" data-idzone="4236022" src="https://a.exdynsrv.com/nativeads-v2.js" ></script>
                     <ListOvas episodes={releases}/>
                 </main>
             </Layout>
